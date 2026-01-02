@@ -1,4 +1,3 @@
-# etl/load.py
 import os
 import psycopg2
 from psycopg2.extras import execute_batch
@@ -10,7 +9,7 @@ def get_conn():
         user=os.getenv("POSTGRES_USER"),
         password=os.getenv("POSTGRES_PASSWORD"),
         host=os.getenv("POSTGRES_HOST"),
-        port=int(os.getenv("POSTGRES_PORT"),
+        port=int(os.getenv("POSTGRES_PORT")),
     )
 
 

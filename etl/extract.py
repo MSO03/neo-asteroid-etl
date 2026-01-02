@@ -1,4 +1,3 @@
-# etl/extract.py
 import os
 import requests
 from datetime import date, timedelta
