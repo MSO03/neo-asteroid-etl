@@ -62,6 +62,7 @@ def clean_data(rows):
                 "miss_distance_km": dist_km,
                 "miss_distance_lunar": dist_lunar,
                 "orbiting_body": r.get("orbiting_body"),
+    		"raw_payload": r.get("raw_payload"),  # keep same
             }
         )
 

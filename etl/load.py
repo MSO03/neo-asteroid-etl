@@ -24,33 +24,34 @@ def load_to_postgres(rows):
         execute_batch(
             cur,
             """
-            INSERT INTO neo_raw (
-                neo_id,
-                name,
-                close_approach_date,
-                close_approach_datetime,
-                is_potentially_hazardous,
-                est_diameter_min_km,
-                est_diameter_max_km,
-                relative_velocity_kms,
-                miss_distance_km,
-                miss_distance_lunar,
-                orbiting_body
-            )
-            VALUES (
-                %(neo_id)s,
-                %(name)s,
-                %(close_approach_date)s,
-                %(close_approach_datetime)s,
-                %(is_potentially_hazardous)s,
-                %(est_diameter_min_km)s,
-                %(est_diameter_max_km)s,
-                %(relative_velocity_kms)s,
-                %(miss_distance_km)s,
-                %(miss_distance_lunar)s,
-                %(orbiting_body)s
-            );
-            """,
+	INSERT INTO neo_raw (
+    neo_id,
+    name,
+    close_approach_date,
+    close_approach_datetime,
+    is_potentially_hazardous,
+    est_diameter_min_km,
+    est_diameter_max_km,
+    relative_velocity_kms,
+    miss_distance_km,
+    miss_distance_lunar,
+    orbiting_body,
+    raw_payload
+)
+VALUES (
+    %(neo_id)s,
+    %(name)s,
+    %(close_approach_date)s,
+    %(close_approach_datetime)s,
+    %(is_potentially_hazardous)s,
+    %(est_diameter_min_km)s,
+    %(est_diameter_max_km)s,
+    %(relative_velocity_kms)s,
+    %(miss_distance_km)s,
+    %(miss_distance_lunar)s,
+    %(orbiting_body)s,
+    %(raw_payload)s
+	);""",
             rows,
             page_size=100,
         )

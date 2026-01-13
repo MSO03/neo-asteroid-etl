@@ -1,4 +1,5 @@
 import os
+import json
 import requests
 from datetime import date, timedelta
 
@@ -67,6 +68,7 @@ def get_neo_data(start_date: date | None = None, end_date: date | None = None):
                     "miss_distance_km": miss_dist.get("kilometers"),
                     "miss_distance_lunar": miss_dist.get("lunar"),
                     "orbiting_body": orbiting_body,
+		    "raw_payload": json.dumps({"neo": neo, "close_approach": ca}),
                 }
                 rows.append(row)
 
