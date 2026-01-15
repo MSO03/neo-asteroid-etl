@@ -1,6 +1,7 @@
 # pipeline.py
 from prefect import flow, task
 from datetime import date, timedelta
+from dotenv import load_dotenv
 
 from etl.extract import get_neo_data
 from etl.transform import clean_data
@@ -28,6 +29,7 @@ def load(rows):
 
 @flow
 def neo_pipeline():
+    load_dotenv()
     rows = extract()
     cleaned = transform(rows)
     load(cleaned)

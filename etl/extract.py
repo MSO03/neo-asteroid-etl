@@ -72,5 +72,5 @@ def get_neo_data(start_date: date | None = None, end_date: date | None = None):
                 }
                 rows.append(row)
 
-    return rows
+    return data, rows
 
