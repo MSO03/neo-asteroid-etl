@@ -22,7 +22,7 @@ def extract():
 def write_raw_to_s3(raw_json):
 	bucket = os.environ["s3_BUCKET"]
 	prefix = os.getenv("s3_PREFIX","raw/neows")
-	date = date.today().isoformat()
+	d = date.today().isoformat()
 	key = f"{prefix}/date={d}/feed.json"
 	return write_json_to_s3(bucket,key,raw_json)
 
@@ -45,7 +45,7 @@ def neo_pipeline():
     cleaned = transform(rows)
     load(cleaned)
 
-	print (f"Wrote raw to:{s3_uri}")
+    print (f"Wrote raw to:{s3_uri}")
 
 if __name__ == "__main__":
     neo_pipeline()
